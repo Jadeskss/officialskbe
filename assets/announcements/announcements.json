@@ -22,13 +22,24 @@
       "active": true
     },
     {
-      "id": 5,
+      "id": 6,
       "title": "Gian",
       "content": "Join us for the second season of our Mobile Legends Tournament. Register now to secure your spot!",
       "date": "2025-03-03",
       "author": "Jade Madriaga (admin)",
       "link": "https://www.facebook.com/profile.php?id=61552583579594",
       "linkText": "Register Now",
+      "showLink": true,
+      "active": true
+    },
+    {
+      "id": 7,
+      "title": "test server",
+      "content": "test server",
+      "date": "2025-03-03",
+      "author": "Jade Madriaga (admin)",
+      "link": "https://www.facebook.com/profile.php?id=61552583579594",
+      "linkText": "test server",
       "showLink": true,
       "active": true
     }

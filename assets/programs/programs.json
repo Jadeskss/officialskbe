@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "title": "Transformative Leadership Workshop",
+      "description": "The SK Councils of Brgy. Batchelor East joined and attended the Transformative Leadership Training Workshop which was organized by the Natividad Christian Peace Church, Christians for Nation Building and Natividad Youth Minister. The seminar and training workshop  was made possible  by the efforts of  Prof. Gerardo Gambala, Executive Director of Christian Values Movement.",
+      "buttonText": "Learn More",
+      "buttonLink": "#leadership",
+      "active": true,
+      "featured": true,
+      "category": "Youth Development",
+      "imagePath": "../assets/programs/images/tlw.jpg"
+      
+    },
+    {
+      "id": 2,
+      "title": "Inter Purok Basketball",
+      "description": "Let's carry this spirit forward, creating a season filled with camaraderie, fair play, and the celebration of every achievement, big or small! 🌟🏆",
+      "buttonText": "Get Involved",
+      "buttonLink": "#community",
+      "active": true,
+      "featured": false,
+      "category": "Youth Development",
+      "imagePath": "../assets/programs/images/Ba3.jpg"
+      
+      
+    },
+    {
+        "id": 2,
+        "title": "2ND SEMESTER KK ASSEMBLY ",
+        "description": "We would like to thank every member of Brgy Batchelor East's Katipunan ng Kabataan for attending our KK Assembly for the second semester.",
+        "buttonText": "Get Involved",
+        "buttonLink": "#community",
+        "active": true,
+        "featured": true,
+        "category": "Youth Development",
+        "imagePath": "../assets/programs/images/kka.jpg"
+        
+        
+      },
+    {
+      "id": 5,
+      "title": "Arts and Culture",
+      "description": "We promote local arts and culture through workshops, exhibitions, and cultural events that showcase the talents of the youth. Our annual cultural festival celebrates traditional dances, music, and crafts from Bachelor East and the surrounding regions.",
+      "buttonText": "Join Our Arts Program",
+      "buttonLink": "#arts",
+      "active": true,
+      "featured": false,
+      "category": "Arts and Culture",
+      "imagePath": "../assets/images/logo.png",
+      "additionalInfo": [
+        "Traditional dance workshops",
+        "Music and instrument classes",
+        "Art exhibitions featuring local youth artists",
+        "Cultural heritage preservation projects"
+      ]
+    }
+  ]

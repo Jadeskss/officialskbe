@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Sangguniang Kabataan of Bachelor East</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* Program-specific styles */
+        .programs-container {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            color: w;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-header {
+            background: var(--primary);
+            color: rgb(255, 255, 255);
+            padding: 15px;
+        }
+
+        .card-title {
+            margin: 0;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-footer {
+            padding: 15px 20px;
+            margin-top: auto;
+            border: none;
+            background-color: transparent;
+        }
+        
+        /* Schedule table styling */
+        .table {
+            margin-bottom: 0;
+        }
+        
+        .table th {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+        }
+        
+        .table td {
+            vertical-align: middle;
+        }
+        
+        .btn-sm {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Sangguniang Kabataan Logo">
+                <div class="logo-text">
+                    <h1>Sangguniang Kabataan</h1>
+                    <span>Bachelor East, Natividad, Pangasinan</span>
+                </div>
+            </div>
+            <!-- Add mobile menu toggle button -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+        <nav>
+            <div class="nav-container">
+                <ul id="main-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="officials.html">Officials</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2>Our Programs & Initiatives</h2>
+            <p>Empowering the youth through meaningful programs that develop leadership, promote community engagement, and build a brighter future.</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <h2>Youth Development Programs</h2>
+                <p>The Sangguniang Kabataan of Bachelor East is dedicated to empowering the youth through various programs and initiatives. Below are our key programs:</p>
+                
+                <!-- Container for dynamically loaded youth development programs -->
+                <div id="youth-development-container" class="programs-container">
+                    <div class="text-center">
+                        <p>Loading programs...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Arts and Culture Programs</h2>
+                <!-- Container for dynamically loaded arts and culture programs -->
+                <div id="arts-and-culture-container" class="programs-container">
+                    <div class="text-center">
+                        <p>Loading arts programs...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Upcoming Program Schedule</h2>
+                <div class="card">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Program</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Registration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leadership Workshop Series</td>
+                                <td>April 10-12, 2025</td>
+                                <td>Bachelor East Community Center</td>
+                                <td><a href="#" class="btn btn-sm btn-outline">Register</a></td>
+                            </tr>
+                            <tr>
+                                <td>Community Clean-Up Drive</td>
+                                <td>April 18, 2025</td>
+                                <td>Bachelor East Plaza</td>
+                                <td><a href="#" class="btn btn-sm btn-outline">Volunteer</a></td>
+                            </tr>
+                            <tr>
+                                <td>Summer Sports Festival</td>
+                                <td>May 1-5, 2025</td>
+                                <td>Municipal Sports Complex</td>
+                                <td><a href="#" class="btn btn-sm btn-outline">Join</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Bachelor East Barangay Hall</p>
+                <p>Email: sk.bacheloreast@gmail.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About SK</a></li>
+                    <li><a href="officials.html">SK Officials</a></li>
+                    <li><a href="programs.html">Programs & Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sangguniang Kabataan of Bachelor East. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/programs.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

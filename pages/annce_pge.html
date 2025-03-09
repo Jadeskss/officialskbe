@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Announcements - SK Bachelor East Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- Add SweetAlert2 for better alerts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .admin-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 500;
+        }
+        #jsonOutput {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+        .announcement-list {
+            margin-top: 30px;
+        }
+        .announcement-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        .btn-action {
+            margin-right: 5px;
+        }
+        /* Login overlay styles */
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .login-box {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #adminContent {
+            display: none;
+        }
+        #logoutButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .steps-list {
+            text-align: left;
+            margin: 15px 0;
+        }
+        .steps-list li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Overlay -->
+    <div id="loginOverlay">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <p id="loginError" class="text-danger mt-3" style="display: none;">Incorrect password. Please try again.</p>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Logout Button (visible after login) -->
+    <button id="logoutButton" class="btn btn-danger" style="display: none;">Logout</button>
+    
+    <!-- Admin Content (hidden until login) -->
+    <div id="adminContent">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <img src="../assets/images/logo.png" alt="Sangguniang Kabataan Logo">
+                    <div class="logo-text">
+                        <h1>Sangguniang Kabataan</h1>
+                        <span>Bachelor East, Natividad, Pangasinan</span>
+                    </div>
+                </div>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+            <nav>
+                <div class="nav-container">
+                    <ul id="main-nav">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="officials.html">Officials</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="announcements.html">Announcements</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <div class="container">
+                <h2>Announcement Management</h2>
+                <p>Create, edit, and manage announcements for your website.</p>
+            </div>
+        </section>
+        
+        <main>
+            <div class="container">
+                <div class="admin-section">
+                    <h3>Create New Announcement</h3>
+                    <form id="announcementForm">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="author">Author:</label>
+                            <input type="text" id="author" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea id="content" class="form-control" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group form-check">
+                            <input type="checkbox" id="active" class="form-check-input" checked>
+                            <label for="active" class="form-check-label">Active</label>
+                        </div>
+                        
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Generate Announcement</button>
+                            <button type="button" id="postAnnouncement" class="btn btn-success">Post Announcement</button>
+                            <button type="button" id="downloadJson" class="btn btn-secondary">Download JSON</button>
+                            <button type="button" id="clearForm" class="btn btn-secondary">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="admin-section">
+                    <h3>Current Announcements</h3>
+                    <button id="loadAnnouncements" class="btn btn-outline-primary mb-3">Load Current Announcements</button>
+                    <div id="announcementList" class="announcement-list">
+                        <p>Click "Load Current Announcements" to view existing announcements.</p>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <h3>Generated JSON</h3>
+                    <p>Copy this JSON and replace the content in your announcements.json file:</p>
+                    <div id="jsonOutput">No announcement generated yet.</div>
+                    <button id="copyJson" class="btn btn-success mt-3">Copy JSON</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Bachelor East Barangay Hall</p>
+                    <p>Email: sk.bacheloreast@gmail.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About SK</a></li>
+                        <li><a href="officials.html">SK Officials</a></li>
+                        <li><a href="programs.html">Programs & Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sangguniang Kabataan of Bachelor East. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Admin password
+            const adminPassword = "sk2025admin"; // Change this to your desired password
+            
+            // Check if already logged in (using session storage)
+            const isLoggedIn = sessionStorage.getItem('skAdminLoggedIn') === 'true';
+            if (isLoggedIn) {
+                showAdminPanel();
+            }
+            
+            // Login form handler
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const password = document.getElementById('adminPassword').value;
+                
+                if (password === adminPassword) {
+                    // Store login state in session storage (will be cleared when browser is closed)
+                    sessionStorage.setItem('skAdminLoggedIn', 'true');
+                    showAdminPanel();
+                } else {
+                    document.getElementById('loginError').style.display = 'block';
+                    document.getElementById('adminPassword').value = '';
+                }
+            });
+            
+            // Logout button handler
+            document.getElementById('logoutButton').addEventListener('click', function() {
+                sessionStorage.removeItem('skAdminLoggedIn');
+                hideAdminPanel();
+            });
+            
+            // Function to show admin panel after login
+            function showAdminPanel() {
+                document.getElementById('loginOverlay').style.display = 'none';
+                document.getElementById('adminContent').style.display = 'block';
+                document.getElementById('logoutButton').style.display = 'block';
+            }
+            
+            // Function to hide admin panel for logout
+            function hideAdminPanel() {
+                document.getElementById('loginOverlay').style.display = 'flex';
+                document.getElementById('adminContent').style.display = 'none';
+                document.getElementById('logoutButton').style.display = 'none';
+                document.getElementById('adminPassword').value = '';
+                document.getElementById('loginError').style.display = 'none';
+            }
+            
+            // Set default date to today
+            document.getElementById('date').valueAsDate = new Date();
+            
+            // Handle form submission
+            document.getElementById('announcementForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const title = document.getElementById('title').value;
+                const author = document.getElementById('author').value;
+                const content = document.getElementById('content').value;
+                const date = document.getElementById('date').value;
+                const active = document.getElementById('active').checked;
+                
+                // Create announcement object
+                const announcement = {
+                    id: Date.now(), // Generate a unique ID based on timestamp
+                    title: title,
+                    content: content,
+                    date: date,
+                    author: author,
+                    active: active
+                };
+                
+                // Get existing announcements
+                fetch('../assets/announcements/announcements.json')
+                    .then(response => response.json())
+                    .then(announcements => {
+                        // Add new announcement
+                        announcements.push(announcement);
+                        
+                        // Format JSON with indentation for readability
+                        const formattedJson = JSON.stringify(announcements, null, 2);
+                        
+                        // Display the JSON
+                        document.getElementById('jsonOutput').textContent = formattedJson;
+                        
+                        // Show success notification
+                        Swal.fire({
+                            title: 'Announcement Generated!',
+                            text: 'Your announcement has been prepared. Click "Post Announcement" to publish it.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading announcements:', error);
+                        // If can't load existing announcements, just show the new one
+                        const formattedJson = JSON.stringify([announcement], null, 2);
+                        document.getElementById('jsonOutput').textContent = formattedJson;
+                        
+                        Swal.fire({
+                            title: 'Announcement Generated!',
+                            text: 'Your announcement has been prepared. Click "Post Announcement" to publish it.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                    });
+            });
+            
+            // Handle Copy JSON button
+            document.getElementById('copyJson').addEventListener('click', function() {
+                const jsonText = document.getElementById('jsonOutput').textContent;
+                navigator.clipboard.writeText(jsonText).then(() => {
+                    Swal.fire({
+                        title: 'Copied!',
+                        text: 'JSON copied to clipboard!',
+                        icon: 'success',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                }).catch(err => {
+                    console.error('Could not copy text: ', err);
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Could not copy to clipboard.',
+                        icon: 'error'
+                    });
+                });
+            });
+            
+            // Post Announcement button handler
+            document.getElementById('postAnnouncement').addEventListener('click', function() {
+                const jsonText = document.getElementById('jsonOutput').textContent;
+                
+                if (jsonText === 'No announcement generated yet.') {
+                    Swal.fire({
+                        title: 'No Announcement',
+                        text: 'Please generate an announcement first.',
+                        icon: 'warning'
+                    });
+                    return;
+                }
+                
+                // Create a blob with the JSON data
+                const blob = new Blob([jsonText], {type: 'application/json'});
+                
+                // Create a download link
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'announcements.json';
+                
+                // Append to the body, click the link, and remove it
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Show success message with clear instructions
+                Swal.fire({
+                    title: 'Announcement Ready to Post!',
+                    html: `
+                        <p>Follow these steps to complete posting:</p>
+                        <ol class="steps-list">
+                            <li>The file has been downloaded to your computer as <strong>announcements.json</strong></li>
+                            <li>Upload this file to your server at: <br><code>/assets/announcements/announcements.json</code></li>
+                            <li>Your announcement will appear immediately after upload</li>
+                        </ol>
+                    `,
+                    icon: 'success',
+                    confirmButtonText: 'Got it!'
+                }).then(() => {
+                    // Clear the form after successful posting
+                    document.getElementById('announcementForm').reset();
+                    document.getElementById('date').valueAsDate = new Date();
+                });
+            });
+            
+            // Download JSON file
+            document.getElementById('downloadJson').addEventListener('click', function() {
+                const jsonText = document.getElementById('jsonOutput').textContent;
+                
+                if (jsonText === 'No announcement generated yet.') {
+                    Swal.fire({
+                        title: 'No Announcement',
+                        text: 'Please generate an announcement first.',
+                        icon: 'warning'
+                    });
+                    return;
+                }
+                
+                // Create a blob with the JSON data
+                const blob = new Blob([jsonText], {type: 'application/json'});
+                
+                // Create a download link
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'announcements.json';
+                
+                // Append to the body, click the link, and remove it
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                Swal.fire({
+                    title: 'Downloaded!',
+                    text: 'JSON file downloaded successfully.',
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
+            
+            // Clear form
+            document.getElementById('clearForm').addEventListener('click', function() {
+                document.getElementById('announcementForm').reset();
+                document.getElementById('date').valueAsDate = new Date();
+                
+                Swal.fire({
+                    title: 'Form Cleared',
+                    text: 'The form has been reset.',
+                    icon: 'info',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            });
+            
+            // Load existing announcements
+            document.getElementById('loadAnnouncements').addEventListener('click', function() {
+                fetch('../assets/announcements/announcements.json')
+                    .then(response => response.json())
+                    .then(announcements => {
+                        displayAnnouncements(announcements);
+                        
+                        Swal.fire({
+                            title: 'Loaded!',
+                            text: 'Current announcements loaded successfully.',
+                            icon: 'success',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading announcements:', error);
+                        document.getElementById('announcementList').innerHTML = 
+                            '<p class="text-danger">Error loading announcements. Make sure the JSON file exists and is valid.</p>';
+                        
+                        Swal.fire({
+                            title: 'Error',
+                            text: 'Could not load announcements. Make sure the JSON file exists and is valid.',
+                            icon: 'error'
+                        });
+                    });
+            });
+            
+            function displayAnnouncements(announcements) {
+                const container = document.getElementById('announcementList');
+                
+                if (!announcements || announcements.length === 0) {
+                    container.innerHTML = '<p>No announcements available.</p>';
+                    return;
+                }
+                
+                // Sort by date (newest first)
+                announcements.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                let html = '';
+                announcements.forEach(announcement => {
+                    const date = new Date(announcement.date).toLocaleDateString();
+                    html += `
+                        <div class="announcement-item" data-id="${announcement.id}">
+                            <h4>${announcement.title} ${announcement.active ? '' : '<span class="badge bg-warning">Inactive</span>'}</h4>
+                            <p><strong>Date:</strong> ${date} | <strong>Author:</strong> ${announcement.author || 'No author'}</p>
+                            <p>${announcement.content}</p>
+                        </div>
+                    `;
+                });
+                
+                container.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

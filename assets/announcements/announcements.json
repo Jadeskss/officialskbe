@@ -1,0 +1,35 @@
+[
+    {
+      "id": 4,
+      "title": "Welcome to SK Bachelor East!",
+      "content": "We're excited to announce our new website launch. Stay tuned for updates on our upcoming programs and initiatives.",
+      "date": "2025-03-07",
+      "author": "Admin",
+      "link": "https://www.facebook.com/skbacheloreast",
+      "linkText": "Visit our Facebook Page",
+      "showLink": true,
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "Mobile legends Tournament Season 2",
+      "content": "Join us for the second season of our Mobile Legends Tournament. Register now to secure your spot!",
+      "date": "2025-03-03",
+      "author": "Jade Madriaga (admin)",
+      "link": "https://www.facebook.com/profile.php?id=61552583579594",
+      "linkText": "Register Now",
+      "showLink": true,
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "Gian",
+      "content": "Join us for the second season of our Mobile Legends Tournament. Register now to secure your spot!",
+      "date": "2025-03-03",
+      "author": "Jade Madriaga (admin)",
+      "link": "https://www.facebook.com/profile.php?id=61552583579594",
+      "linkText": "Register Now",
+      "showLink": true,
+      "active": true
+    }
+]

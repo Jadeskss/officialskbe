@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Sangguniang Kabataan of Bachelor East</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* Event card styling */
+        .events-container {
+            margin: 30px 0;
+        }
+        
+        .event-card {
+            height: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 25px;
+            background-color: white;
+            position: relative;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .event-image-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .event-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-card:hover .event-image {
+            transform: scale(1.05);
+        }
+        
+        .event-date-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(13, 110, 253, 0.9);
+            color: white;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .event-past-badge {
+            background-color: rgba(108, 117, 125, 0.9);
+        }
+        
+        .event-upcoming-badge {
+            background-color: rgba(25, 135, 84, 0.9);
+        }
+        
+        .event-content {
+            padding: 20px;
+        }
+        
+        .event-title {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .event-meta {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .event-meta i {
+            margin-right: 5px;
+        }
+        
+        .event-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .event-actions {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #0d6efd;
+        }
+        
+        .event-notice {
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        /* Updated image container and responsive image styling */
+.event-image-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0; /* Placeholder color while images load */
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Aspect ratio preservation technique */
+.event-image-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.event-image-container .event-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Improved image handling for different screens */
+@media (max-width: 1200px) {
+    .event-image-container {
+        height: 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .event-image-container {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-image-container {
+        height: 200px; /* Slightly larger on medium screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .event-image-container {
+        height: 220px; /* Larger on mobile since columns are full width */
+    }
+}
+
+/* Image loading animation */
+.event-image {
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.event-image.loaded {
+    opacity: 1;
+}
+
+/* Add this to the event images to prevent stretching */
+.event-card:hover .event-image {
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Sangguniang Kabataan Logo">
+                <div class="logo-text">
+                    <h1>Sangguniang Kabataan</h1>
+                    <span>Bachelor East, Natividad, Pangasinan</span>
+                </div>
+            </div>
+            <!-- Add mobile menu toggle button -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+        <nav>
+            <div class="nav-container">
+                <ul id="main-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="officials.html">Officials</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="container">
+            <h2>Events & Activities</h2>
+            <p>Join us for exciting events and activities organized by the Sangguniang Kabataan of Bachelor East.</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <!-- Upcoming Events Section -->
+            <section class="section">
+                <h2 class="section-heading">Upcoming Events</h2>
+                <div id="upcoming-events-container" class="events-container">
+                    <div class="text-center">
+                        <p>Loading upcoming events...</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Past Events Section -->
+            <section class="section">
+                <h2 class="section-heading">Past Events</h2>
+                <div id="past-events-container" class="events-container">
+                    <div class="text-center">
+                        <p>Loading past events...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Bachelor East Barangay Hall</p>
+                <p>Email: sk.bacheloreast@gmail.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About SK</a></li>
+                    <li><a href="officials.html">SK Officials</a></li>
+                    <li><a href="programs.html">Programs & Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sangguniang Kabataan of Bachelor East. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+    <script src="../js/events.js"></script>
+</body>
+</html>

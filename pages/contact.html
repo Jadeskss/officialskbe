@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sangguniang Kabataan of Bachelor East</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <img src="../assets/images/logo.png" alt="Sangguniang Kabataan Logo">
+                <div class="logo-text">
+                    <h1>Sangguniang Kabataan</h1>
+                    <span>Bachelor East, Natividad, Pangasinan</span>
+                </div>
+            </div>
+            <!-- Add mobile menu toggle button -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+        <nav>
+            <div class="nav-container">
+                <ul id="main-nav">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="officials.html">Officials</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="announcements.html">Announcements</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html"class="active">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch with the Sangguniang Kabataan of Bachelor East. We're here to listen and assist you.</p>
+        </div>
+    </section>
+    
+    <main>
+        <div class="container">
+            <section class="section">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Send us a Message</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="text-muted mb-4">If you have any questions, feedback, or inquiries, please complete the form below. Our team will respond promptly.</p>
+                                
+                                <form action="#" method="post" id="contactForm" class="contact-form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <label for="name" class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person"></i></span>
+                                                    <input type="text" id="name" name="name" class="form-control border-start-0 ps-0" placeholder="Enter your full name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <label for="email" class="form-label fw-bold">Email Address <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope"></i></span>
+                                                    <input type="email" id="email" name="email" class="form-control border-start-0 ps-0" placeholder="example@email.com" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <label for="phone" class="form-label fw-bold">Phone Number</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-telephone"></i></span>
+                                                    <input type="tel" id="phone" name="phone" class="form-control border-start-0 ps-0" placeholder="Optional">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <label for="subject" class="form-label fw-bold">Subject <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-chat-square-text"></i></span>
+                                                    <input type="text" id="subject" name="subject" class="form-control border-start-0 ps-0" placeholder="What is your message about?" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group mb-4">
+                                        <label for="message" class="form-label fw-bold">Message <span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0 align-self-start pt-2"><i class="bi bi-pencil-square"></i></span>
+                                            <textarea id="message" name="message" class="form-control border-start-0 ps-0" rows="6" placeholder="Please enter your message here..." required></textarea>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="privacyPolicy" required>
+                                            <label class="form-check-label" for="privacyPolicy">
+                                                I agree to the <a href="#">privacy policy</a> and consent to the processing of my personal data.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                        <button type="submit" class="btn btn-primary px-4 py-2">
+                                            <i class="bi bi-send me-2"></i>Send Message
+                                        </button>
+                                        <button type="reset" class="btn btn-outline-secondary px-4 py-2">
+                                            <i class="bi bi-x-circle me-2"></i>Clear Form
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="form-text mt-3">
+                                        <span class="text-danger">*</span> Required fields
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Contact Information</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <h5><i class="icon-location"></i> Office Address:</h5>
+                                    <p>Bachelor East Barangay Hall<br>
+                                    Bachelor East, Nueva Ecija<br>
+                                    Philippines 3113</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5><i class="icon-contact"></i> Contact Details:</h5>
+                                    <p>Email: <a href="mailto:sk.bacheloreast@gmail.com">sk.bacheloreast@gmail.com</a></p>
+                                    <p>Phone: (123) 456-7890</p>
+                                    <p>Mobile: +63 912 345 6789</p>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h5><i class="icon-clock"></i> Office Hours:</h5>
+                                    <p>Monday to Friday: 8:00 AM - 5:00 PM<br>
+                                    Saturday: 8:00 AM - 12:00 PM<br>
+                                    Sunday: Closed</p>
+                                </div>
+                                
+                                <div>
+                                    <h5><i class="icon-social"></i> Social Media:</h5>
+                                    <p>Follow us on our social media platforms:</p>
+                                    <div class="social-links">
+                                        <a href="#" class="social-link">Facebook</a>
+                                        <a href="#" class="social-link">Twitter</a>
+                                        <a href="#" class="social-link">Instagram</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Our Location</h3>
+                    </div>
+                    <div class="map-container">
+                        <!-- Replace with actual Google Maps embed code -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1822.2447891053519!2d120.82283561803999!3d16.054966062649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33911d0030a78641%3A0x4d66e93349c07443!2sBarchelor%20East%20Barangay%20Hall!5e1!3m2!1sen!2sph!4v1741338129212!5m2!1sen!2sph" 
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade" title="Bachelor East Barangay Hall Location"></iframe>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Frequently Asked Questions</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="faq-item mb-4">
+                                    <h5>How can I join SK activities?</h5>
+                                    <p>To join our activities, you can register at the Barangay Hall, contact us through this website, or send us a message on our social media pages.</p>
+                                </div>
+                                <div class="faq-item mb-4">
+                                    <h5>How can I apply for SK scholarships?</h5>
+                                    <p>Scholarship applications are typically opened at the beginning of each school year. Visit our office for the application forms or download them from the Services page.</p>
+                                </div>
+                                <div class="faq-item mb-4">
+                                    <h5>How can I report community issues to SK?</h5>
+                                    <p>You can report issues through our contact form, by visiting our office, or by contacting any of our officials directly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Bachelor East Barangay Hall</p>
+                <p>Email: sk.bacheloreast@gmail.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About SK</a></li>
+                    <li><a href="officials.html">SK Officials</a></li>
+                    <li><a href="programs.html">Programs & Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sangguniang Kabataan of Bachelor East. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

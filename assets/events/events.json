@@ -1,0 +1,55 @@
+[
+    {
+      "id": 1,
+      "title": "Mobile Legends Tournament",
+      "description": "Join us for an exciting Mobile Legends tournament featuring teams from all puroks of Bachelor East. Prizes and refreshments will be provided for participants and spectators. Come and show off your gaming skills!",
+      "date": "2025-06-10",
+      "time": "8:00 AM - 5:00 PM",
+      "location": "Bachelor East Plaza",
+      "imagePath": "../assets/images/ml.png",
+      "detailsLink": "#leadership-summit",
+      "registrationLink": "#register",
+      "past": false,
+      "active": true
+    },
+
+    {
+      "id": 3,
+      "title": "Inter-Purok Basketball Tournament",
+      "description": "Our annual basketball tournament featuring teams from all puroks of Bachelor East. Come support your local teams and enjoy the competitive spirit of our community.",
+      "date": "2025-02-25",
+      "time": "3:00 PM - 8:00 PM",
+      "location": "Bachelor East Basketball Court",
+      "imagePath": "../assets/events/images/basketball-tournament.jpg",
+      "detailsLink": "#basketball",
+      "galleryLink": "#gallery",
+      "past": true,
+      "active": true
+    },
+    {
+      "id": 4,
+      "title": "Youth Talent Show 2024",
+      "description": "A showcase of the diverse talents of the youth in our community. The event featured singing, dancing, poetry, and other performances from our talented young residents.",
+      "date": "2024-12-15",
+      "time": "6:00 PM - 9:00 PM",
+      "location": "Municipal Auditorium",
+      "imagePath": "../assets/events/images/talent-show.jpg",
+      "detailsLink": "#talent-show",
+      "galleryLink": "#gallery",
+      "past": true,
+      "active": true
+    },
+    {
+      "id": 5,
+      "title": "Environmental Awareness Seminar",
+      "description": "An educational seminar on environmental conservation and sustainable practices. The event included tree planting and distribution of eco-friendly items to participants.",
+      "date": "2024-11-22",
+      "time": "1:00 PM - 4:00 PM",
+      "location": "Bachelor East Elementary School",
+      "imagePath": "../assets/events/images/environmental-seminar.jpg",
+      "detailsLink": "#environmental",
+      "galleryLink": "#gallery",
+      "past": true,
+      "active": true
+    }
+  ]

@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainNav = document.getElementById('main-nav');
     const header = document.querySelector('header');
     
+    // Disable right click on the entire document
+   //document.addEventListener('contextmenu', function(e) {
+       // e.preventDefault();
+        //return false;
+    //});
+    
     if (mobileToggle && nav) {
         // Toggle function to handle all menu state changes
         function toggleMobileMenu(show) {
@@ -86,3 +92,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Trigger scroll once to set initial state
     window.dispatchEvent(new Event('scroll'));
 });
+

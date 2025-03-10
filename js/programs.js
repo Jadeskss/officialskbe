@@ -95,3 +95,69 @@ function displayProgramsByCategory(categories) {
         container.appendChild(row);
     }
 }
+
+// ...existing code (if any)...
+
+// Function to load program schedules
+function loadProgramSchedules() {
+    const scheduleContainer = document.getElementById('schedule-container');
+    const scheduleBody = document.getElementById('schedule-body');
+    const loadingElement = document.getElementById('schedule-loading');
+    const errorElement = document.getElementById('schedule-error');
+    
+    // Fetch program schedules from JSON file
+    fetch('../assets/programs/upcomming.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Hide loading indicator
+            loadingElement.style.display = 'none';
+            
+            // Process the schedule data
+            if (data && data.schedules && data.schedules.length > 0) {
+                // Show the container
+                scheduleContainer.style.display = 'block';
+                
+                // Clear existing content
+                scheduleBody.innerHTML = '';
+                
+                // Add each schedule item
+                data.schedules.forEach(schedule => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${schedule.program}</td>
+                        <td>${schedule.date}</td>
+                        <td>${schedule.location}</td>
+                        <td><a href="${schedule.actionLink}" class="btn btn-sm btn-outline">${schedule.action}</a></td>
+                    `;
+                    scheduleBody.appendChild(row);
+                });
+            } else {
+                // If no schedules are found
+                scheduleBody.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center">No upcoming schedules available.</td>
+                    </tr>
+                `;
+                scheduleContainer.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            // Show error message and hide loading indicator
+            console.error('Error fetching program schedules:', error);
+            loadingElement.style.display = 'none';
+            errorElement.style.display = 'block';
+        });
+}
+
+// Load schedules when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Load existing program data (if you have this functionality already)
+    
+    // Load program schedules
+    loadProgramSchedules();
+});

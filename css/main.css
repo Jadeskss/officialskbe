@@ -218,7 +218,7 @@ nav a.active {
 }
 
 .card-title {
-    color: var(--primary);
+    color: white;
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
 }
@@ -302,8 +302,8 @@ nav a.active {
 
 .btn-outline {
     background-color: transparent;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid var(--primary);
+    color: var(--secondary);
 }
 
 .btn-outline:hover {
@@ -586,29 +586,37 @@ footer {
 
 @media (max-width: 768px) {
     .header-top {
-        flex-direction: column;
-        text-align: center;
-        padding: 1rem;
+        flex-direction: row; /* Change to row instead of column */
+        text-align: left;
+        padding: 0.5rem 1rem; /* Reduced padding */
+        align-items: center;
     }
     
     .logo {
-        margin-bottom: 1rem;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
+        margin-bottom: 0; /* Remove bottom margin */
+        justify-content: flex-start;
+        flex-direction: row; /* Change to row for horizontal layout */
     }
     
     .logo img {
-        height: 50px;
-        margin: 0 0 0.5rem 0;
+        height: 40px; /* Smaller logo */
+        margin-right: 0.5rem;
+        margin-bottom: 0;
     }
     
     .logo-text h1 {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Smaller font size */
+        margin-bottom: 0;
     }
     
     .logo-text span {
-        font-size: 0.8rem;
+        font-size: 0.7rem; /* Smaller subtitle */
+    }
+    
+    /* Position the mobile toggle button properly with the new layout */
+    .mobile-nav-toggle {
+        top: 0.5rem;
+        right: 1rem;
     }
     
     nav ul {
@@ -766,6 +774,21 @@ footer {
     .container {
         width: 100%;
         padding: 0 15px;
+    }
+    .header-top {
+        padding: 0.3rem 0.8rem; /* Further reduce padding */
+    }
+    
+    .logo img {
+        height: 35px; /* Even smaller logo */
+    }
+    
+    .logo-text h1 {
+        font-size: 0.9rem;
+    }
+    
+    .logo-text span {
+        font-size: 0.6rem;
     }
 }
 

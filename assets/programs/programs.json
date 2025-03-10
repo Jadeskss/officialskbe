@@ -1,22 +1,22 @@
 [
     {
       "id": 1,
-      "title": "Transformative Leadership Workshop",
-      "description": "The SK Councils of Brgy. Batchelor East joined and attended the Transformative Leadership Training Workshop which was organized by the Natividad Christian Peace Church, Christians for Nation Building and Natividad Youth Minister. The seminar and training workshop  was made possible  by the efforts of  Prof. Gerardo Gambala, Executive Director of Christian Values Movement.",
-      "buttonText": "Learn More",
-      "buttonLink": "#leadership",
+      "title": "Cyling Race 2024",
+      "description": "Pedaling towards unity and fitness! 🚴‍♂️✨ Highlights from the first-ever Bike Race 2024—a day filled with adrenaline, determination, and community spirit. Here's to more milestones on and off the road!.",
+      "buttonText": "View Post",
+      "buttonLink": "https://www.facebook.com/share/p/1AJrTArAti/",
       "active": true,
       "featured": true,
       "category": "Youth Development",
-      "imagePath": "../assets/programs/images/tlw.jpg"
+      "imagePath": "../assets/programs/images/cy.jpg"
       
     },
     {
       "id": 2,
       "title": "Inter Purok Basketball",
       "description": "Let's carry this spirit forward, creating a season filled with camaraderie, fair play, and the celebration of every achievement, big or small! 🌟🏆",
-      "buttonText": "Get Involved",
-      "buttonLink": "#community",
+      "buttonText": "View Post",
+      "buttonLink": "https://www.facebook.com/profile.php?id=61552583579594",
       "active": true,
       "featured": false,
       "category": "Youth Development",
@@ -43,7 +43,7 @@
       "description": "We promote local arts and culture through workshops, exhibitions, and cultural events that showcase the talents of the youth. Our annual cultural festival celebrates traditional dances, music, and crafts from Bachelor East and the surrounding regions.",
       "buttonText": "Join Our Arts Program",
       "buttonLink": "#arts",
-      "active": true,
+      "active": false,
       "featured": false,
       "category": "Arts and Culture",
       "imagePath": "../assets/images/logo.png",
@@ -55,3 +55,4 @@
       ]
     }
   ]
+  

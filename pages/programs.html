@@ -145,36 +145,27 @@
             <section class="section">
                 <h2>Upcoming Program Schedule</h2>
                 <div class="card">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Program</th>
-                                <th>Date</th>
-                                <th>Location</th>
-                                <th>Registration</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Leadership Workshop Series</td>
-                                <td>April 10-12, 2025</td>
-                                <td>Bachelor East Community Center</td>
-                                <td><a href="#" class="btn btn-sm btn-outline">Register</a></td>
-                            </tr>
-                            <tr>
-                                <td>Community Clean-Up Drive</td>
-                                <td>April 18, 2025</td>
-                                <td>Bachelor East Plaza</td>
-                                <td><a href="#" class="btn btn-sm btn-outline">Volunteer</a></td>
-                            </tr>
-                            <tr>
-                                <td>Summer Sports Festival</td>
-                                <td>May 1-5, 2025</td>
-                                <td>Municipal Sports Complex</td>
-                                <td><a href="#" class="btn btn-sm btn-outline">Join</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div id="schedule-loading" class="text-center py-4">
+                        <p>Loading schedule...</p>
+                    </div>
+                    <div id="schedule-container" style="display: none;">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Program</th>
+                                    <th>Date</th>
+                                    <th>Location</th>
+                                    <th>Registration</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schedule-body">
+                                <!-- Schedule items will be loaded dynamically here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="schedule-error" class="alert alert-danger m-3" style="display: none;">
+                        Failed to load program schedule. Please try again later.
+                    </div>
                 </div>
             </section>
         </div>
